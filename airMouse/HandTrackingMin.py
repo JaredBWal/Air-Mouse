@@ -27,8 +27,13 @@ if __name__ == '__main__':
         pTime = 0
 
         success, img = cap.read()
+
+        # inverts image
+        img = cv2.flip(img, 1)
+
         imgRBG = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRBG)
+
 
         xVal8 = 0
         yVal8 = 0
@@ -54,6 +59,8 @@ if __name__ == '__main__':
                 # gets x and y values for tip of thumb
                 xVal4, yVal4 = int(lm8.x * w), int(lm8.y * h)
 
+                print(handLms, "ed")
+
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
@@ -73,22 +80,9 @@ if __name__ == '__main__':
         cv2.circle(img, (xVal8, yVal8), 25, (255, 0, 0), 10)
         cv2.circle(img, (xVal4, yVal4), 25, (0, 255, 0), 10)
 
-        # shows screen
+        #shows screen
         cv2.imshow("Hand Tracking", img)
         cv2.waitKey(1)
 
-# for id, lm in enumerate(handLms.landmark):
-#
-#     # index finger tip
-#     if (id == 8):
-#         h, w, c = img.shape
-#         cx, cy = int(lm.x * w), int(lm.y * h)
-#         xVal = cx
-#         yVal = cy
-#
-#         print(cx, ",", cy)
-#
-#     # thumb tip
-#     if (id == 4):
-#         h, w, c = img.shape
-#         xVal4, yVal4 = int(lm.x * w), int(lm.y * h)
+        time.sleep(.001)
+

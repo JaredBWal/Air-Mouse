@@ -6,6 +6,6 @@ def moveTo(x, y):
         pyautogui.moveTo(x, y, duration=0)
 
 def clickMouse():
-    print("Clicking")
+    #print("Clicking")
     pyautogui.click()
 
