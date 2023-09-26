@@ -59,15 +59,15 @@ if __name__ == '__main__':
                 # gets x and y values for tip of thumb
                 xVal4, yVal4 = int(lm8.x * w), int(lm8.y * h)
 
-                print(handLms, "ed")
+                # print(handLms, "ed")
 
 
             mpDraw.draw_landmarks(img, handLms, mpHands.HAND_CONNECTIONS)
 
-        mouseC.moveTo(xVal8, yVal8)
+        # mouseC.moveTo(xVal8, yVal8)
 
         # checks if mouse should click
-        checkClick(yVal8, yVal4)
+        # checkClick(yVal8, yVal4)
 
         # calculates fps
         cTime = time.time()
@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
         # draws text
         cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_ITALIC, 3, (0, 0, 255), 2)
-        # cv2.putText(img, "Finger", (xVal, yVal), cv2.FONT_ITALIC, 3, (0,0,255), 2)
+        cv2.putText(img, "Finger", (xVal8, yVal8), cv2.FONT_ITALIC, 3, (0,0,255), 2)
         cv2.circle(img, (xVal8, yVal8), 25, (255, 0, 0), 10)
         cv2.circle(img, (xVal4, yVal4), 25, (0, 255, 0), 10)
 
@@ -84,5 +84,5 @@ if __name__ == '__main__':
         cv2.imshow("Hand Tracking", img)
         cv2.waitKey(1)
 
-        time.sleep(.001)
+        # time.sleep(.01)
 
